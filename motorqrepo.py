@@ -262,8 +262,6 @@ ignition_tlm = tlm_sorted.loc[
 status_map = {
     'on': 'ignitionon',
     'off': 'ignitionoff',
-    '1': 'ignitionon',
-    '0': 'ignitionoff'
 }
 ignition_tlm['event'] = (
     ignition_tlm['IGNITION_STATUS']
@@ -280,7 +278,7 @@ print("TLM ignition events:", ignition_tlm.shape[0])
 print(ignition_tlm.head())
 
 # Step 1: Filter for valid statuses
-valid_status = ['on','off','1','0']
+valid_status = ['on','off']
 tlm_valid = tlm_sorted[tlm_sorted['IGNITION_STATUS'].str.lower().isin(valid_status)].copy()
 
 # Step 2: Sort
